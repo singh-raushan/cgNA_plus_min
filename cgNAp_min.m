@@ -154,7 +154,7 @@ end
 q4_at_1  = qs(nbp+1,4);
 
 % Using fminunc with trust-region algorithm and asociated parameters
-options                     =  optimset('Display','iter','MaxIter',50,'GradObj','on','Hessian','on','TolFun',1e-16,'Algorithm','trust-region','TolX',1e-16);
+options                     =  optimset('Display','iter','MaxIter',5000,'GradObj','on','Hessian','on','TolFun',1e-16,'Algorithm','trust-region','TolX',1e-16);
 [zeq,eneq,exitflag,output]  =  fminunc('discrete_dna_penalty_en_grad_hess',zvec,options); % here function "discrete_dna_penalty_en_grad_hess" returns energy, gradient and hessian
 
 disp('Minimization stops with following details');
@@ -203,7 +203,7 @@ disp(sprintf('Linking number of the found minicircle:     %d', Lk_final));
 %% Plotting
 do_title = true; do_save = false;is_diff=false; guess_nb=0;
 % Comparing periodic groundstate of linear fragment, initial guess minicircle shape and found minicircle shape
-plot2D_cgDNAp_coordinates(whats, initial_guess_minicircle_shape, final_minicircle_shape, do_title, seq_name, guess_nb, do_save, is_diff);
+%plot2D_cgDNAp_coordinates(whats, initial_guess_minicircle_shape, final_minicircle_shape, do_title, seq_name, guess_nb, do_save, is_diff);
 % 3d plot of found/final minicircle shape
 plot3D_cgNAp_minicircle(final_minicircle_shape, seq, do_title, seq_name, guess_nb, do_save)
 
